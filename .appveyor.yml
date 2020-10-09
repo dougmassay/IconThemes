@@ -31,7 +31,7 @@ build_script:
     python .\ci_scripts\build_resources.py
 
 artifacts:
-  - path: '.\build\*.rcc'
+  - path: '.\src\build\*.rcc'
     name: compiled_resources
 
 deploy:
