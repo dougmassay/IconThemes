@@ -28,7 +28,7 @@ before_build:
     
 build_script:
 - cmd: |-
-    python ..\ci_scripts\build_resources.py
+    python .\ci_scripts\build_resources.py
 
 artifacts:
   - path: '.\build\*.rcc'
