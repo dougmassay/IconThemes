@@ -38,7 +38,7 @@ deploy:
   - provider: GitHub
     auth_token:
       secure: QM747yzK0qkUTP1k/zQXGbxvvWK97YQpC5+6oAX6FTCPI+jYlB2zf4mzdcFj/uPL
-    release: Custom Icon Themes $($(APPVEYOR_REPO_TAG_NAME))
+    release: Custom Icon Themes ($(APPVEYOR_REPO_TAG_NAME))
     tag: $(APPVEYOR_REPO_TAG_NAME)
     description: '[Replace this text]'
     artifact: compiled_resources
