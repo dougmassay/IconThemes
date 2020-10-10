@@ -13,7 +13,12 @@ init:
   # Configure the AppVeyor build version to ${branch-name}-${git-revision}-${timestamp}
   - ps: $COMMIT = $env:APPVEYOR_REPO_COMMIT.SubString(0,7)
   - ps: $TIMESTAMP = $env:APPVEYOR_REPO_COMMIT_TIMESTAMP.SubString(0,10)
-  - ps: Update-AppveyorBuild -Version ("{0}-{1}-{2}" -f $env:APPVEYOR_REPO_BRANCH, $COMMIT, $TIMESTAMP)
+  - ps: >-
+      if($env:APPVEYOR_REPO_TAG) {
+          Update-AppveyorBuild -Version ("{0}-{1}-{2}" -f $env:APPVEYOR_REPO_TAG_NAME, $COMMIT, $TIMESTAMP) 
+      }else {    
+          Update-AppveyorBuild -Version ("{0}-{1}-{2}" -f $env:APPVEYOR_REPO_BRANCH, $COMMIT, $TIMESTAMP)
+      }
 
 
 environment:
