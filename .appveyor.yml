@@ -14,7 +14,7 @@ init:
   - ps: $commit = $env:APPVEYOR_REPO_COMMIT.SubString(0,7)
   - ps: $timestamp = $env:APPVEYOR_REPO_COMMIT_TIMESTAMP.SubString(0,10)
   - ps: >-
-      if($env:APPVEYOR_REPO_TAG) {
+      if($env:APPVEYOR_REPO_TAG -eq 'true') {
           Update-AppveyorBuild -Version ("{0}-{1}-{2}" -f $env:APPVEYOR_REPO_TAG_NAME, $commit, $timestamp) 
       }else {    
           Update-AppveyorBuild -Version ("{0}-{1}-{2}" -f $env:APPVEYOR_REPO_BRANCH, $commit, $timestamp)
